@@ -1,9 +1,9 @@
 import { CiSettings } from "react-icons/ci";
 import { IoChatboxOutline } from "react-icons/io5";
 import { FaSearch } from "react-icons/fa";
+import clsx from "clsx";
 
-// Fix Scroll and Fix Search Icon
-
+// REPLACE THESE DATA INTO ACTUAL DATA FROM DATABASE
 type TchatList = {
   id: string;
   name: string;
@@ -66,45 +66,54 @@ const sampleChatList: TchatList[] = [
 export default function ChatList() {
   // Receive data for chat lists then map
   return (
-    <div className="h-full w-full p-1">
+    <div className="h-full w-full flex flex-col p-1">
       <div className="flex justify-between items-center">
         <div className="flex items-center">
           <IoChatboxOutline size={28} />
           <h1 className="font-bold">Chats</h1>
         </div>
         <button>
-          <CiSettings size={28} />
+          <CiSettings size={28} className="hover:text-[#8484FE]" />
         </button>
       </div>
-      <div className="flex flex-col items-center justify-center">
+      <div className="border-solid border-black border-[1px] rounded-3xl w-auto my-2 mx-1 flex  py-1 bg-[#D9D9D9] overflow-hidden">
+        <FaSearch
+          size={22}
+          color="#978787"
+          className="hidden md:flex my-1 mx-2"
+        />
         <input
           placeholder=" Search"
-          className="border-solid border-black border-[1px] rounded-3xl w-full my-2 mx-1"
+          className="ml-1 mr-2 flex-1 outline-none bg-transparent"
         />
-        <div className="h-full w-full">
-          {/*CHAT HEADS */}
-          {sampleChatList.map((person: TchatList) => (
-            <div
-              className="border-solid border-black border-[1px] rounded-3xl p-2 m-1 h-[65px]"
-              key={person.id}
-            >
-              <div className="flex justify-center md:flex-row md:flex-nowrap">
-                <div className="border-solid border-black border-[1px] rounded-full w-12 h-12 bg-gray-500 my-auto min-w-12" />
-                <div className="hidden md:flex flex-1 flex-col ml-2 w-full">
-                  <h1 className="w-full truncate">{person.name}</h1>
-                  <div className="grid grid-cols-5">
-                    <p className="col-span-4 text-sm w-full truncate text-gray-500">
-                      {person.message}
-                    </p>
-                    <p className="col-span-1 text-sm justify-self-end text-gray-500">
-                      11:11
-                    </p>
-                  </div>
+      </div>
+
+      <div className="grid place-items-center overflow-y-auto ">
+        {/*CHAT HEADS */}
+        {sampleChatList.map((person: TchatList) => (
+          <button
+            className={clsx(
+              "border-solid border-black border-[1px] rounded-3xl p-2 m-1 h-[65px] w-[90%] hover:bg-[#D9D9D9]",
+              { "bg-[#D9D9D9]": person.id === "1" }
+            )}
+            key={person.id}
+          >
+            <div className="flex justify-center md:flex-row md:flex-nowrap">
+              <div className="border-solid border-black border-[1px] rounded-full w-12 h-12 bg-gray-500 my-auto min-w-12" />
+              <div className="hidden md:flex flex-1 flex-col ml-2 w-full">
+                <h1 className="w-full truncate text-left">{person.name}</h1>
+                <div className="grid grid-cols-5">
+                  <p className="col-span-4 text-sm w-full truncate text-gray-500 text-left">
+                    {person.message}
+                  </p>
+                  <p className="col-span-1 text-sm justify-self-end text-gray-500">
+                    11:11
+                  </p>
                 </div>
               </div>
             </div>
-          ))}
-        </div>
+          </button>
+        ))}
       </div>
     </div>
   );
