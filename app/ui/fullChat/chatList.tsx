@@ -76,15 +76,15 @@ export default function ChatList() {
           <CiSettings size={28} className="hover:text-[#8484FE]" />
         </button>
       </div>
-      <div className="border-solid border-black border-[1px] rounded-3xl w-auto my-2 mx-1 flex  py-1 bg-[#D9D9D9] overflow-hidden">
+      <div className="border-solid border-black border-[1px] rounded-3xl w-auto my-2 mx-1 flex  py-2 bg-[#D9D9D9]">
         <FaSearch
           size={22}
           color="#978787"
-          className="hidden md:flex my-1 mx-2"
+          className="hidden md:flex align-top my-auto mx-2"
         />
         <input
-          placeholder=" Search"
-          className="ml-1 mr-2 flex-1 outline-none bg-transparent"
+          placeholder="Search"
+          className="ml-1 mr-2 flex-1 outline-none bg-transparent w-full"
         />
       </div>
 
