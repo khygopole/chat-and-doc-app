@@ -29,13 +29,15 @@ const sampleConversation: TconversationBox[] = [
   {
     id: "3",
     name: "Me",
-    message: "This is my 2nd message",
+    message:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque asperiores autem rem deleniti! Nam magni illum tempore, qui rerum maiores numquam architecto voluptates reiciendis iusto. Nemo necessitatibus vitae suscipit voluptatem",
     dateSent: new Date(2025, 1, 5, 16, 44),
   },
   {
     id: "4",
     name: "User 1",
-    message: "This is your 2nd message",
+    message:
+      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Corrupti necessitatibus nemo iste exercitationem maiores, saepe, odio sit deleniti obcaecati soluta nobis tenetur assumenda facere voluptatibus cumque laboriosam quidem eaque voluptates.",
     dateSent: new Date(2025, 1, 5, 16, 43),
   },
 ];
@@ -60,7 +62,7 @@ export default function ConversationBox() {
             {chatMessage.name === userName ? (
               <>
                 {/*MY MESSAGE*/}
-                <div className="relative group m-1 ml-auto w-3/4 border-solid border-black border-[1px] rounded-xl p-1 bg-[#D9D9D9] mr-2">
+                <div className="relative group m-1 ml-auto max-w-[75%] border-solid border-black border-[1px] rounded-xl p-1 bg-[#D9D9D9] mr-2 w-fit">
                   <p className="text-sm m-1">{chatMessage.message}</p>
                   <div className="absolute hidden group-hover:block bg-gray-800 text-white text-xs p-2 rounded-md right-full mr-2 top-1/2 transform -translate-y-1/2 whitespace-nowrap">
                     {chatMessage.dateSent.toLocaleTimeString([], {
@@ -75,9 +77,9 @@ export default function ConversationBox() {
                 {/*YOUR MESSAGE*/}
                 <div className="flex m-1">
                   <div className="mx-1 border-solid border-black border-[1px] rounded-full w-8 h-8 bg-gray-500 mt-auto min-w-8" />
-                  <div className="flex flex-col mr-auto">
+                  <div className="flex flex-col w-full">
                     <p className="text-[#615A5A] text-xs">{chatMessage.name}</p>
-                    <div className="relative group w-3/4 border-solid border-black border-[1px] rounded-xl p-1">
+                    <div className="relative group max-w-[75%] border-solid border-black border-[1px] rounded-xl p-1 w-fit">
                       <p className="text-sm m-1">{chatMessage.message}</p>
                       <div className="absolute hidden group-hover:block bg-gray-800 text-white text-xs p-2 rounded-md left-full ml-2 top-1/2 transform -translate-y-1/2 whitespace-nowrap">
                         {chatMessage.dateSent.toLocaleTimeString([], {
