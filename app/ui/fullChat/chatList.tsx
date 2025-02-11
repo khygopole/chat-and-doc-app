@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { CiSettings } from "react-icons/ci";
 import { IoChatboxOutline } from "react-icons/io5";
 import { FaSearch } from "react-icons/fa";
@@ -72,9 +73,9 @@ export default function ChatList() {
           <IoChatboxOutline size={28} />
           <h1 className="font-bold">Chats</h1>
         </div>
-        <button>
+        <Link href={"/setting/profile"}>
           <CiSettings size={28} className="hover:text-[#8484FE]" />
-        </button>
+        </Link>
       </div>
       <div className="border-solid border-black border-[1px] rounded-3xl w-auto my-2 mx-1 flex  py-2 bg-[#D9D9D9]">
         <FaSearch
