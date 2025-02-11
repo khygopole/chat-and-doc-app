@@ -40,11 +40,37 @@ const sampleConversation: TconversationBox[] = [
       "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Corrupti necessitatibus nemo iste exercitationem maiores, saepe, odio sit deleniti obcaecati soluta nobis tenetur assumenda facere voluptatibus cumque laboriosam quidem eaque voluptates.",
     dateSent: new Date(2025, 1, 5, 16, 43),
   },
+  {
+    id: "5",
+    name: "User 1",
+    message: "This is your 1st message",
+    dateSent: new Date(2025, 1, 5, 16, 41),
+  },
+  {
+    id: "6",
+    name: "Me",
+    message: "This is my 1st message",
+    dateSent: new Date(2025, 1, 5, 16, 42),
+  },
+  {
+    id: "7",
+    name: "Me",
+    message:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque asperiores autem rem deleniti! Nam magni illum tempore, qui rerum maiores numquam architecto voluptates reiciendis iusto. Nemo necessitatibus vitae suscipit voluptatem",
+    dateSent: new Date(2025, 1, 5, 16, 44),
+  },
+  {
+    id: "8",
+    name: "User 1",
+    message:
+      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Corrupti necessitatibus nemo iste exercitationem maiores, saepe, odio sit deleniti obcaecati soluta nobis tenetur assumenda facere voluptatibus cumque laboriosam quidem eaque voluptates.",
+    dateSent: new Date(2025, 1, 5, 16, 43),
+  },
 ];
 
-// Sort by date sent
+// Sort by date sent in descending order since this will be styled
 const sortedSample = sampleConversation.sort(
-  (a, b) => a.dateSent.getTime() - b.dateSent.getTime()
+  (a, b) => b.dateSent.getTime() - a.dateSent.getTime()
 );
 
 export default function ConversationBox() {
@@ -55,7 +81,8 @@ export default function ConversationBox() {
         {/*REPLACE INTO THE NAME OF ONE BEING CHATTED*/}
         <h1 className="font-bold my-auto ml-2">User 1</h1>
       </div>
-      <div className="flex-1 overflow-y-auto">
+      {/*REVERSE DESCENDING ORDER MESSAGE TO SET THE DEFAULT SCROLL TO THE BOTTOM OF THE CONTAINER*/}
+      <div className="flex-1 overflow-y-auto flex flex-col-reverse">
         {/*CHAT MESSAGES*/}
         {sortedSample.map((chatMessage) => (
           <div key={chatMessage.id}>
