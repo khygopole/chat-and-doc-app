@@ -1,101 +1,122 @@
-import Image from "next/image";
+
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+    <div>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+      {/* Main Header */}
+      <div>
+        <h1>Chat n Doc</h1>
+        <hr></hr>
+        <p>Real-time Collaborative Document Editor with Integrated Chatting</p>
+        <button>Get Started</button>
+      </div>
+      
+      {/* Features */}
+      <div>
+        <div>
+          <h2>Instant Messaging</h2>
+          <p>Engage in real-time conversations with team members, share files, and exchange ideas effortlessly.</p>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+        <div>
+          <h2>Document Collaboration</h2>
+          <p>Work on documents together in real time, ensuring everyone is on the same page and contributing effectively.</p>
+        </div>
+        <div>
+          <h2>Commenting & Feedback</h2>
+          <p>Leave comments directly on documents for clear communication and constructive feedback.</p>
+        </div>
+        <div>
+          <h2>Version History</h2>
+          <p>Keep track of all changes made to documents with our version history, allowing you to revert to previous versions if needed.</p>
+        </div>
+        <div>
+          <h2>User-Friendly Interface</h2>
+          <p>Enjoy an intuitive design that makes it easy for anyone to navigate and utilize all features without a steep learning curve</p>
+        </div>
+        <div>
+          <h2>Cross-Platform Compatibility</h2>
+          <p>Whether you're on a desktop, tablet, or mobile device, our app ensures a consistent experience across all platforms.</p>
+        </div>
+      </div>
+      
+      {/* Pricing */} 
+      <div>
+        <h1>Pricing</h1>
+      </div>
+
+      <div>
+        <div>
+          <p>BASIC</p>
+          <div>
+            <p>$20</p>
+            <p>/MO</p>
+          </div>
+          <p>Includes essential chat and document editing features for small teams</p>
+          <ul>
+            <li>real-time editing</li>
+            <li>real-time chat</li>
+            <li>file collaboration</li>
+            <li>file saving</li>
+          </ul>
+        </div>
+
+        <div>
+          <p>PRO</p>
+          <div>
+            <p>$40</p>
+            <p>/MO</p>
+          </div>
+          <p>Adds advanced features like file sharing and integration options</p>
+          <ul>
+            <li>everything in basic</li>
+            <li>Google Docs integration</li>
+            <li>Microsoft integration</li>
+            <li>Messenger Integration</li>
+          </ul>
+        </div>
+
+        <div>
+          <p>ENTERPRISE</p>
+          <div>
+            <p>$200</p>
+            <p>/MO</p>
+          </div>
+          <p>Made for larger teams needing extensive support & features</p>
+          <ul>
+            <li>everything in pro</li>
+            <li>proprietary features</li>
+            <li>priority support</li>
+          </ul>
+        </div>
+      </div>
+
+      {/* About Us */}
+      <div>
+        <h1>About Us</h1>
+      </div>
+
+      <div>
+        <div>
+          <h2>Alaric</h2>
+          <h3>CTO</h3>
+          <p>There are only
+          2 Genders.</p>
+        </div>
+        <div>
+          <h2>Alaric</h2>
+          <h3>CTO</h3>
+          <p>There are only
+          2 Genders.</p>
+        </div>
+        <div>
+          <h2>Alaric</h2>
+          <h3>CTO</h3>
+          <p>There are only
+          2 Genders.</p>
+        </div>
+      </div>
     </div>
+
   );
 }
