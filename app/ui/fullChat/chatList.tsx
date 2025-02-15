@@ -1,71 +1,103 @@
+"use client";
+
+import { useState } from "react";
+
 import Link from "next/link";
 import { CiSettings } from "react-icons/ci";
 import { IoChatboxOutline } from "react-icons/io5";
 import { FaSearch } from "react-icons/fa";
 import clsx from "clsx";
 
+// Create interface to pass the activated convo to the convo box component via the statewrapper
+interface ChatListProp {
+  setSelectedConvoId: (id: string) => void;
+}
+
 // REPLACE THESE DATA INTO ACTUAL DATA FROM DATABASE
 type TchatList = {
   id: string;
   name: string;
   message: string;
+  isActive: boolean;
 };
 
-const sampleChatList: TchatList[] = [
-  {
-    id: "1",
-    name: "User 1",
-    message: "This is my message btw 112344556678",
-  },
-  {
-    id: "2",
-    name: "User 2",
-    message: "This is my message btw 112344556678",
-  },
-  {
-    id: "3",
-    name: "User 3",
-    message: "This is my message btw 112344556678",
-  },
-  {
-    id: "4",
-    name: "User 4",
-    message: "This is my message btw 112344556678",
-  },
-  {
-    id: "5",
-    name: "User 5",
-    message: "This is my message btw 112344556678",
-  },
-  {
-    id: "6",
-    name: "User 6",
-    message: "This is my message btw 112344556678",
-  },
-  {
-    id: "7",
-    name: "User 7",
-    message: "This is my message btw 112344556678",
-  },
-  {
-    id: "8",
-    name: "User 8",
-    message: "This is my message btw 112344556678",
-  },
-  {
-    id: "9",
-    name: "User 9",
-    message: "This is my message btw 112344556678",
-  },
-  {
-    id: "10",
-    name: "User 10",
-    message: "This is my message btw 112344556678",
-  },
-];
-
-export default function ChatList() {
+export default function ChatList(props: ChatListProp) {
   // Receive data for chat lists then map
+  // SAMPLE DATA
+  const [sampleChatList, setSampleChatList] = useState<TchatList[]>([
+    {
+      id: "1",
+      name: "User 1",
+      message: "This is my message btw 112344556678",
+      isActive: false,
+    },
+    {
+      id: "2",
+      name: "User 2",
+      message: "This is my message btw 112344556678",
+      isActive: false,
+    },
+    {
+      id: "3",
+      name: "User 3",
+      message: "This is my message btw 112344556678",
+      isActive: false,
+    },
+    {
+      id: "4",
+      name: "User 4",
+      message: "This is my message btw 112344556678",
+      isActive: false,
+    },
+    {
+      id: "5",
+      name: "User 5",
+      message: "This is my message btw 112344556678",
+      isActive: false,
+    },
+    {
+      id: "6",
+      name: "User 6",
+      message: "This is my message btw 112344556678",
+      isActive: false,
+    },
+    {
+      id: "7",
+      name: "User 7",
+      message: "This is my message btw 112344556678",
+      isActive: false,
+    },
+    {
+      id: "8",
+      name: "User 8",
+      message: "This is my message btw 112344556678",
+      isActive: false,
+    },
+    {
+      id: "9",
+      name: "User 9",
+      message: "This is my message btw 112344556678",
+      isActive: false,
+    },
+    {
+      id: "10",
+      name: "User 10",
+      message: "This is my message btw 112344556678",
+      isActive: false,
+    },
+  ]);
+
+  // Function to set the isActive property when activating a chat head
+  function handleChatActivation(id: string) {
+    setSampleChatList((prevChatList) =>
+      prevChatList.map((chatHead) => ({
+        ...chatHead,
+        isActive: chatHead.id === id,
+      }))
+    );
+    // Set the id and pass it to the conversation box component via the statewrapper
+    props.setSelectedConvoId(id);
+  }
   return (
     <div className="h-full w-full flex flex-col p-1">
       <div className="flex justify-between items-center">
@@ -95,9 +127,10 @@ export default function ChatList() {
           <button
             className={clsx(
               "border-solid border-black border-[1px] rounded-3xl p-2 m-1 h-[65px] w-[90%] hover:bg-[#D9D9D9]",
-              { "bg-[#D9D9D9]": person.id === "1" }
+              { "bg-[#D9D9D9]": person.isActive === true }
             )}
             key={person.id}
+            onClick={() => handleChatActivation(person.id)}
           >
             <div className="flex justify-center md:flex-row md:flex-nowrap">
               <div className="border-solid border-black border-[1px] rounded-full w-12 h-12 bg-gray-500 my-auto min-w-12" />
